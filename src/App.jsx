@@ -1,15 +1,9 @@
-import TodoInputText from './components/TodoInputText/TodoInputText';
-import TodoListHeader from './components/TodoListHeader/TodoListHeader';
-import TodoListItems from './components/TodoListItems/TodoListItems';
+import TodoList from './components/TodoList/TodoList';
 
-function App() {
-  return (
-    <div className="App">
-      <TodoListHeader />
-      <TodoInputText />
-      <TodoListItems />
-    </div>
-  );
-}
+const App = () => (
+  <div className="App">
+    <TodoList />
+  </div>
+);
 
 export default App;
