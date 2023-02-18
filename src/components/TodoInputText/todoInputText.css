@@ -1,0 +1,13 @@
+.inputContainer {
+  background-color: paleturquoise;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.inputContainer > input {
+  flex: 1;
+  border: none;
+  padding: 10px;
+}
