@@ -9,3 +9,39 @@
   padding: 0;
   margin: 0;
 }
+
+.Appc {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.inputContainer {
+  background-color: paleturquoise;
+  padding: 0 20px 0 20px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.inputText {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  background: transparent;
+  outline: none;
+}
+
+.listItems {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.todoItem {
+  display: flex;
+  align-items: center;
+  background-color: rgba(234, 231, 231, 0.982);
+  padding: 0 20px 0 20px;
+}
