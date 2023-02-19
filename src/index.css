@@ -12,6 +12,36 @@
   margin: 0;
 }
 
+header {
+  margin: 10px;
+  position: relative;
+}
+
+nav {
+  width: 100px;
+  position: absolute;
+  border-radius: 5px;
+  left: 25px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 20px;
+}
+
+.show {
+  display: flex;
+}
+
+.hide {
+  display: none;
+}
+
 .todoListContainer {
   width: 40%;
   display: flex;
