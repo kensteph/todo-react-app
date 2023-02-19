@@ -26,6 +26,18 @@ const TodoList = () => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
+  // Edit Todo
+  const handleEditTodo = (id, value) => {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, title: value };
+        }
+        return todo;
+      }),
+    );
+  };
+
   // Complete Todo
   const handleCompleteTodo = (id) => {
     setTodos(
@@ -46,6 +58,7 @@ const TodoList = () => {
         todos={todos}
         handleRemoveTodo={handleRemoveTodo}
         handleCompleteTodo={handleCompleteTodo}
+        handleEditTodo={handleEditTodo}
       />
     </div>
   );
