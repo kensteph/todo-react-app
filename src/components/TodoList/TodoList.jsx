@@ -1,11 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import TodoListItems from '../TodoListItems/TodoListItems';
 import TodoListHeader from '../TodoListHeader/TodoListHeader';
 import TodoInputText from '../TodoInputText/TodoInputText';
 
 const TodoList = () => {
-  const [todos, setTodos] = useState([]);
+  // Get data from local storage
+  const getDataFromLocalStorage = () => JSON.parse(localStorage.getItem('react-todo')) || [];
+
+  const [todos, setTodos] = useState(getDataFromLocalStorage());
+
+  // Local Storage
+  useEffect(() => {
+    localStorage.setItem('react-todo', JSON.stringify(todos));
+  }, [todos]);
 
   // Add new Todo
   const handleClickAddTodo = (title) => {
@@ -16,6 +24,18 @@ const TodoList = () => {
   // Remove Todo
   const handleRemoveTodo = (id) => {
     setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
+  // Edit Todo
+  const handleEditTodo = (id, value) => {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, title: value };
+        }
+        return todo;
+      }),
+    );
   };
 
   // Complete Todo
@@ -38,6 +58,7 @@ const TodoList = () => {
         todos={todos}
         handleRemoveTodo={handleRemoveTodo}
         handleCompleteTodo={handleCompleteTodo}
+        handleEditTodo={handleEditTodo}
       />
     </div>
   );

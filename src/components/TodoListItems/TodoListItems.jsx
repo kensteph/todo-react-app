@@ -2,7 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TodoItem from '../TodoItem/TodoItem';
 
-const TodoListItems = ({ todos, handleRemoveTodo, handleCompleteTodo }) => (
+const TodoListItems = ({
+  todos,
+  handleRemoveTodo,
+  handleCompleteTodo,
+  handleEditTodo,
+}) => (
   <ul className="listItems">
     {todos.map((todo) => (
       <TodoItem
@@ -10,6 +15,7 @@ const TodoListItems = ({ todos, handleRemoveTodo, handleCompleteTodo }) => (
         todo={todo}
         handleRemoveTodo={handleRemoveTodo}
         handleCompleteTodo={handleCompleteTodo}
+        handleEditTodo={handleEditTodo}
       />
     ))}
   </ul>
@@ -20,5 +26,7 @@ TodoListItems.propTypes = { handleRemoveTodo: PropTypes.func };
 TodoListItems.defaultProps = { handleRemoveTodo: () => {} };
 TodoListItems.propTypes = { handleCompleteTodo: PropTypes.func };
 TodoListItems.defaultProps = { handleCompleteTodo: () => {} };
+TodoListItems.propTypes = { handleEditTodo: PropTypes.func };
+TodoListItems.defaultProps = { handleEditTodo: () => {} };
 
 export default TodoListItems;
