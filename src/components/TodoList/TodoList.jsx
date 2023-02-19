@@ -18,11 +18,27 @@ const TodoList = () => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
+  // Complete Todo
+  const handleCompleteTodo = (id) => {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, completed: !todo.completed };
+        }
+        return todo;
+      })
+    );
+  };
+
   return (
     <div className="todoListContainer">
       <TodoListHeader />
       <TodoInputText handleClickAddTodo={handleClickAddTodo} />
-      <TodoListItems todos={todos} handleRemoveTodo={handleRemoveTodo} />
+      <TodoListItems
+        todos={todos}
+        handleRemoveTodo={handleRemoveTodo}
+        handleCompleteTodo={handleCompleteTodo}
+      />
     </div>
   );
 };
