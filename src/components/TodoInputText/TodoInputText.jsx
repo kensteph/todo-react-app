@@ -35,5 +35,4 @@ const TodoInputText = ({ handleClickAddTodo }) => {
 };
 TodoInputText.propTypes = { handleClickAddTodo: PropTypes.func };
 TodoInputText.defaultProps = { handleClickAddTodo: () => {} };
-
 export default TodoInputText;

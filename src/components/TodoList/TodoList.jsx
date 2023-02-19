@@ -6,17 +6,23 @@ import TodoInputText from '../TodoInputText/TodoInputText';
 
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
+
+  // Add new Todo
   const handleClickAddTodo = (title) => {
     const newTodo = { id: uuidv4(), title, completed: false };
     setTodos((prevState) => [...prevState, newTodo]);
-    console.log('TEST', newTodo);
+  };
+
+  // Remove Todo
+  const handleRemoveTodo = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
   };
 
   return (
     <div className="todoListContainer">
       <TodoListHeader />
       <TodoInputText handleClickAddTodo={handleClickAddTodo} />
-      <TodoListItems todos={todos} />
+      <TodoListItems todos={todos} handleRemoveTodo={handleRemoveTodo} />
     </div>
   );
 };
