@@ -26,7 +26,7 @@ const TodoList = () => {
           return { ...todo, completed: !todo.completed };
         }
         return todo;
-      })
+      }),
     );
   };
 
