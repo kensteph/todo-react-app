@@ -1,0 +1,14 @@
+.listHeader {
+  text-align: center;
+}
+
+.listHeader h1 {
+  font-size: 60px;
+  color: gray;
+  font-weight: 700;
+}
+
+.listHeader p {
+  font-size: 20px;
+  color: gray;
+}
