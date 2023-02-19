@@ -1,19 +1,29 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
-
+  const toggle = () => {
+    setToggleMenu(!toggleMenu);
+  };
   return (
     <header>
-      <button type="button" onClick={() => setToggleMenu(!toggleMenu)}>
+      <button type="button" onClick={toggle}>
         {' '}
         <span className="material-symbols-rounded">menu</span>
       </button>
       <nav className={toggleMenu ? 'show' : 'hide'}>
         <ul className="menu">
-          <>Home</>
-          <li>About</li>
-          <li>Login</li>
+          <li>
+            <Link to="/" onClick={toggle}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/about" onClick={toggle}>
+              About
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>

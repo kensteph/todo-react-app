@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 /* Google Icon */
 .material-symbols-rounded {
@@ -10,6 +11,10 @@
 * {
   padding: 0;
   margin: 0;
+}
+
+body {
+  font-family: 'Roboto Mono', monospace;
 }
 
 header {
@@ -31,7 +36,11 @@ nav {
   list-style: none;
   padding: 10px;
   font-size: 18px;
-  font-weight: 20px;
+  font-weight: 700;
+}
+
+.active {
+  color: pink;
 }
 
 .show {
@@ -50,11 +59,12 @@ nav {
 }
 
 .inputContainer {
-  background-color: paleturquoise;
   padding: 0 20px 0 20px;
   display: flex;
   align-items: center;
   border-radius: 10px;
+  box-shadow: 5px 5px 8px 5px gray;
+  margin: 5px;
 }
 
 .inputText {
@@ -76,4 +86,14 @@ nav {
   align-items: center;
   background-color: rgba(234, 231, 231, 0.982);
   padding: 0 20px 0 20px;
+}
+
+button {
+  border: none;
+  background: transparent;
+}
+
+.error-msg {
+  color: red;
+  margin: 10px;
 }
