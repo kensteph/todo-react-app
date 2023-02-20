@@ -25,7 +25,7 @@ const TodoItem = ({
       <input type="checkbox" checked={completed} onChange={handleCheck} />
       <input
         readOnly={completed}
-        className="inputText"
+        className={completed ? 'inputText completed' : 'inputText'}
         type="text"
         value={input}
         onChange={(e) => setInput(e.target.value)}

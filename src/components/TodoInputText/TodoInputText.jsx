@@ -29,7 +29,7 @@ const TodoInputText = ({ handleClickAddTodo }) => {
           <span className="material-symbols-rounded">add_circle</span>
         </button>
       </form>
-      <span>{message}</span>
+      <span className="error-msg">{message}</span>
     </>
   );
 };
