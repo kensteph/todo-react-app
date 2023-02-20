@@ -2,7 +2,7 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import TodoList from './components/TodoList/TodoList';
 import About from './pages/About';
-
+// Replace BrowserRouter by HashRouter
 const App = () => (
   <div className="App">
     <HashRouter>
