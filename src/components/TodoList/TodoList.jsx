@@ -23,7 +23,7 @@ const TodoList = () => {
 
   // Remove Todo
   const handleRemoveTodo = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
+    setTodos((prevState) => prevState.filter((todo) => todo.id !== id));
   };
 
   // Edit Todo
