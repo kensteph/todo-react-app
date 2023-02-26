@@ -1,15 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  addedTodo,
+  removedTodo,
+  editedTodo,
+  comletedTodo,
+} from '../../features/todo/todoSlice';
+
+// Components
 import TodoListItems from '../TodoListItems/TodoListItems';
 import TodoListHeader from '../TodoListHeader/TodoListHeader';
 import TodoInputText from '../TodoInputText/TodoInputText';
 
 const TodoList = () => {
-  // Get data from local storage
-  const getDataFromLocalStorage = () => JSON.parse(localStorage.getItem('react-todo')) || [];
-
-  const [todos, setTodos] = useState(getDataFromLocalStorage());
-
+  const todos = useSelector((state) => state.todoReducer.todos);
+  const dispatch = useDispatch();
   // Local Storage
   useEffect(() => {
     localStorage.setItem('react-todo', JSON.stringify(todos));
@@ -17,37 +23,22 @@ const TodoList = () => {
 
   // Add new Todo
   const handleClickAddTodo = (title) => {
-    const newTodo = { id: uuidv4(), title, completed: false };
-    setTodos((prevState) => [...prevState, newTodo]);
+    dispatch(addedTodo({ id: uuidv4(), title, completed: false }));
   };
 
   // Remove Todo
   const handleRemoveTodo = (id) => {
-    setTodos((prevState) => prevState.filter((todo) => todo.id !== id));
+    dispatch(removedTodo({ id }));
   };
 
   // Edit Todo
   const handleEditTodo = (id, value) => {
-    setTodos(
-      todos.map((todo) => {
-        if (todo.id === id) {
-          return { ...todo, title: value };
-        }
-        return todo;
-      }),
-    );
+    dispatch(editedTodo({ id, title: value }));
   };
 
   // Complete Todo
   const handleCompleteTodo = (id) => {
-    setTodos(
-      todos.map((todo) => {
-        if (todo.id === id) {
-          return { ...todo, completed: !todo.completed };
-        }
-        return todo;
-      }),
-    );
+    dispatch(comletedTodo({ id }));
   };
 
   return (
