@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
 
 // Get data from local storage
@@ -17,7 +18,10 @@ const todoSlice = createSlice({
       state.todos.push(data);
     },
     removedTodo: (state, action) => {
-      state.todos = state.todos.filter((todo) => todo.id !== action.payload.id);
+      const newTodos = state.todos.filter(
+        (todo) => todo.id !== action.payload.id,
+      );
+      state.todos = newTodos;
     },
     editedTodo: (state, action) => {
       state.todos = state.todos.map((todo) => {
